@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reda Allah Hakem - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+
+        .nav-active {
+            color: #22d3ee !important;
+            border-bottom: 2px solid #22d3ee;
+        }
+
+        .experience-card {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.8) 100%);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .experience-card:hover {
+            border-color: rgba(34, 211, 238, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(34, 211, 238, 0.1);
+        }
+
+        .skill-badge {
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            color: #06b6d4;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .skill-badge:hover {
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
+            border-color: rgba(34, 211, 238, 0.6);
+        }
+
+        .language-item {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .language-item:hover {
+            border-color: rgba(34, 211, 238, 0.5);
+            background: rgba(30, 41, 59, 0.9);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #06b6d4 0%, #0284c7 100%);
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #06b6d4, #0284c7);
+            border-radius: 2px;
+        }
+
+        .icon-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
+            border: 2px solid rgba(34, 211, 238, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-desktop {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-gradient-to-b from-slate-900 via-slate-900 to-transparent backdrop-blur-md border-b border-cyan-500/20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">REDA</div>
+                <div class="nav-desktop flex gap-8">
+                    <button onclick="scrollToSection('home')" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors pb-2">Startseite</button>
+                    <button onclick="scrollToSection('about')" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors pb-2">Über Mich</button>
+                    <button onclick="scrollToSection('experience')" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors pb-2">Erfahrung</button>
+                    <button onclick="scrollToSection('skills')" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors pb-2">Fähigkeiten</button>
+                    <button onclick="scrollToSection('contact')" class="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors pb-2">Kontakt</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 pt-20">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-8">
+                <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border-2 border-cyan-400/50 flex items-center justify-center mb-6">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='70' font-size='80' text-anchor='middle'%3E👨‍💻%3C/text%3E%3C/svg%3E" alt="Avatar" class="w-28 h-28">
+                </div>
+            </div>
+            
+            <h1 class="text-6xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                Reda Allah Hakem
+            </h1>
+            <p class="text-2xl text-cyan-400 mb-4">Spezialist für Informationssysteme und Computernetze</p>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-12 text-lg leading-relaxed">
+                Leidenschaftlich für Cloud-Technologien, Cybersicherheit und digitale Transformation. Ich entwickle innovative Lösungen, um komplexe technische Herausforderungen zu bewältigen.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <button onclick="scrollToSection('contact')" class="px-8 py-3 btn-primary text-white rounded-lg font-semibold inline-flex items-center justify-center gap-2">
+                    Kontaktieren Sie mich ↓
+                </button>
+                <button onclick="scrollToSection('experience')" class="px-8 py-3 border-2 border-cyan-400/50 text-cyan-400 rounded-lg font-semibold hover:bg-cyan-400/10 transition-all">
+                    Mein Weg
+                </button>
+            </div>
+
+            <div class="flex justify-center gap-8 text-2xl">
+                <a href="mailto:redahakem35@gmail.com" title="E-Mail" class="hover:text-cyan-400 transition-colors">✉️</a>
+                <a href="https://www.linkedin.com/in/hakem-reda-allah-986935209/" title="LinkedIn" class="hover:text-cyan-400 transition-colors" target="_blank">🔗</a>
+                <a href="#" title="GitHub" class="hover:text-cyan-400 transition-colors">💻</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Über Mich -->
+    <section id="about" class="py-20 px-4 bg-slate-900/50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 section-title">Über Mich</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <p class="text-gray-300 leading-relaxed text-lg">
+                        Spezialist für Informationssysteme und Computernetze. Ich bin gewissenhaft, motiviert und leidenschaftlich bei der Verfolgung von Innovation. Ich entwickle kontinuierlich meine Fähigkeiten durch lebenslanges Lernen.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed text-lg">
+                        Neugierig und entschlossen, bin ich immer bereit, neue Herausforderungen anzunehmen, um effektiv zu den Zielen des Unternehmens beizutragen. Meine Erfahrung umfasst Informatiknetze, Cloud Computing, Cybersicherheit und digitale Transformation.
+                    </p>
+
+                    <div class="pt-4 space-y-3">
+                        <div class="flex items-start gap-3">
+                            <span class="text-cyan-400 mt-1">✓</span>
+                            <span class="text-gray-300"><strong>Autonomie:</strong> Fähigkeit, Projekte von A bis Z mit Eigeninitiative zu leiten</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-cyan-400 mt-1">✓</span>
+                            <span class="text-gray-300"><strong>Analytisches Denken:</strong> Lösung komplexer Probleme mit methodischem Ansatz</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-cyan-400 mt-1">✓</span>
+                            <span class="text-gray-300"><strong>Kreativität:</strong> Entwicklung innovativer, bedarfsgerechter Lösungen</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-cyan-400 mt-1">✓</span>
+                            <span class="text-gray-300"><strong>Zusammenarbeit:</strong> Effektive Zusammenarbeit in Agile/Scrum-Umgebungen</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-gradient p-8 rounded-xl border">
+                    <h3 class="text-2xl font-bold text-cyan-400 mb-8">Ausbildung</h3>
+                    <div class="space-y-8">
+                        <div>
+                            <p class="font-semibold text-white text-lg">Spezialist für Informationssysteme und Computernetze</p>
+                            <p class="text-gray-400 text-sm mt-1">EEMSI, Meknès (2022-2024)</p>
+                            <p class="text-cyan-400 text-sm font-medium mt-2">📌 Mit Auszeichnung - Option MIAGE</p>
+                        </div>
+                        <div class="pt-4 border-t border-cyan-400/20">
+                            <p class="font-semibold text-white text-lg">Abitur in Physikwissenschaften</p>
+                            <p class="text-gray-400 text-sm mt-1">Lycée William Thomson, Meknès (2021-2022)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Berufliche Erfahrung -->
+    <section id="experience" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 section-title">Berufliche Erfahrung</h2>
+            
+            <div class="space-y-6">
+                <!-- Praktikum 1 -->
+                <div class="experience-card p-6 rounded-lg">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Praktikum - TRADIVTEL SARL</h3>
+                            <p class="text-cyan-400 text-sm font-medium">📍 Rabat</p>
+                        </div>
+                        <p class="text-gray-400 text-sm whitespace-nowrap">Jan 2026 - März 2026</p>
+                    </div>
+                    <p class="text-gray-300 mb-4">Teilnahme an Aufgaben im Bereich Informatiknetze und Telekommunikation. Beitrag zu technischen und operativen Unternehmensaktivitäten.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge">Informatiknetze</span>
+                        <span class="skill-badge">HTML</span>
+                        <span class="skill-badge">Server</span>
+                    </div>
+                </div>
+
+                <!-- Praktikum 2 -->
+                <div class="experience-card p-6 rounded-lg">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Praktikum - BEJA Services S.A.R.L</h3>
+                            <p class="text-cyan-400 text-sm font-medium">📍 Rabat</p>
+                        </div>
+                        <p class="text-gray-400 text-sm whitespace-nowrap">Mai 2025 - Jul 2025</p>
+                    </div>
+                    <p class="text-gray-300 mb-4">Teilnahme an Aufgaben in Informatiknetzen und Telekommunikation. Beitrag zu Managementberatungsaktivitäten (Audit, Consulting).</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge">Webdesign</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">Informationssysteme</span>
+                    </div>
+                </div>
+
+                <!-- Praktikum 3 -->
+                <div class="experience-card p-6 rounded-lg">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Praktikum - Devoteam</h3>
+                            <p class="text-cyan-400 text-sm font-medium">📍 Rabat</p>
+                        </div>
+                        <p class="text-gray-400 text-sm whitespace-nowrap">Feb 2025 - Apr 2025</p>
+                    </div>
+                    <p class="text-gray-300 mb-4">Entdeckung und Teilnahme an Beratungsprojekten zu Technologien: Cloud, Cybersicherheit, Daten und künstliche Intelligenz. Beitrag zu digitalen Transformationsprozessen.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge">Cloud</span>
+                        <span class="skill-badge">Cybersicherheit</span>
+                        <span class="skill-badge">ServiceNow</span>
+                        <span class="skill-badge">Künstliche Intelligenz</span>
+                    </div>
+                </div>
+
+                <!-- Praktikum 4 -->
+                <div class="experience-card p-6 rounded-lg">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Praktikum - ONEE (Nationales Elektrizitäts- und Wasserwerk)</h3>
+                            <p class="text-cyan-400 text-sm font-medium">📍 Meknès</p>
+                        </div>
+                        <p class="text-gray-400 text-sm whitespace-nowrap">Apr 2024 - Mai 2024</p>
+                    </div>
+                    <p class="text-gray-300 mb-4">Konzeption und Entwicklung einer mobilen Anwendung zur Verwaltung von Behältern für die Betriebsüberwachung.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">HTML</span>
+                        <span class="skill-badge">Server</span>
+                        <span class="skill-badge">Overleaf</span>
+                    </div>
+                </div>
+
+                <!-- Praktikum 5 -->
+                <div class="experience-card p-6 rounded-lg">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Praktikum - CHM Consulting Strategy</h3>
+                            <p class="text-cyan-400 text-sm font-medium">📍 Casablanca</p>
+                        </div>
+                        <p class="text-gray-400 text-sm whitespace-nowrap">Apr 2023 - Mai 2023</p>
+                    </div>
+                    <p class="text-gray-300 mb-4">Teilnahme an Beratungsmissionen in Organisation, Management und IKT. Beitrag zur Durchführung von Informationssystemprojekten (IS).</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge">AutoCAD</span>
+                        <span class="skill-badge">SQL Server</span>
+                        <span class="skill-badge">TypeScript</span>
+                        <span class="skill-badge">Axios</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fähigkeiten -->
+    <section id="skills" class="py-20 px-4 bg-slate-900/50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 section-title">Technische Fähigkeiten</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Programmiersprachen -->
+                <div class="hero-gradient p-8 rounded-xl border">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="icon-circle">💻</div>
+                        <h3 class="text-xl font-bold text-cyan-400">Programmiersprachen</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge">HTML</span>
+                        <span class="skill-badge">AutoCAD</span>
+                        <span class="skill-badge">PHP</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">TypeScript</span>
+                        <span class="skill-badge">Java</span>
+                        <span class="skill-badge">C#</span>
+                        <span class="skill-badge">Dart</span>
+                    </div>
+                </div>
+
+                <!-- Werkzeuge -->
+                <div class="hero-gradient p-8 rounded-xl border">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="icon-circle">⚙️</div>
+                        <h3 class="text-xl font-bold text-cyan-400">Werkzeuge & Frameworks</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge">Linux Administration</span>
+                        <span class="skill-badge">Word</span>
+                        <span class="skill-badge">Excel</span>
+                        <span class="skill-badge">PowerPoint</span>
+                        <span class="skill-badge">Photoshop</span>
+                        <span class="skill-badge">Editing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sprachen -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                    <div class="icon-circle">🌍</div>
+                    Sprachen
+                </h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="language-item">
+                        <p class="font-bold text-white text-lg">🇸🇦 Arabisch</p>
+                        <p class="text-cyan-400 font-medium mt-1">Muttersprache</p>
+                        <div class="mt-3 bg-cyan-400/20 h-2 rounded-full">
+                            <div class="bg-gradient-to-r from-cyan-400 to-blue-500 h-2 rounded-full w-full"></div>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <p class="font-bold text-white text-lg">🇫🇷 Französisch</p>
+                        <p class="text-cyan-400 font-medium mt-1">B2 - Fließend</p>
+                        <div class="mt-3 bg-cyan-400/20 h-2 rounded-full">
+                            <div class="bg-gradient-to-r from-cyan-400 to-blue-500 h-2 rounded-full w-4/5"></div>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <p class="font-bold text-white text-lg">🇬🇧 Englisch</p>
+                        <p class="text-cyan-400 font-medium mt-1">B2 - Geschäftsniveau</p>
+                        <div class="mt-3 bg-cyan-400/20 h-2 rounded-full">
+                            <div class="bg-gradient-to-r from-cyan-400 to-blue-500 h-2 rounded-full w-4/5"></div>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <p class="font-bold text-white text-lg">🇩🇪 Deutsch</p>
+                        <p class="text-cyan-400 font-medium mt-1">B1 - Fließend</p>
+                        <div class="mt-3 bg-cyan-400/20 h-2 rounded-full">
+                            <div class="bg-gradient-to-r from-cyan-400 to-blue-500 h-2 rounded-full w-3/5"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="contact" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 section-title">Kontaktieren Sie mich</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <a href="mailto:redahakem35@gmail.com" class="hero-gradient p-8 rounded-lg border text-center hover:border-cyan-400/50 transition-all group">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform inline-block">✉️</div>
+                    <p class="text-white font-semibold mb-2">E-Mail</p>
+                    <p class="text-gray-400 text-sm">redahakem35@gmail.com</p>
+                </a>
+
+                <a href="tel:+212636772386" class="hero-gradient p-8 rounded-lg border text-center hover:border-cyan-400/50 transition-all group">
+                    <div class="text-4xl mb-4 group-hover:scale-110 transition-transform inline-block">📱</div>
+                    <p class="text-white font-semibold mb-2">Telefon</p>
+                    <p class="text-gray-400 text-sm">+212 636 772 386</p>
+                </a>
+
+                <div class="hero-gradient p-8 rounded-lg border text-center">
+                    <div class="text-4xl mb-4 inline-block">📍</div>
+                    <p class="text-white font-semibold mb-2">Standort</p>
+                    <p class="text-gray-400 text-sm">Meknès, Marokko</p>
+                </div>
+            </div>
+
+            <div class="hero-gradient p-8 rounded-lg border text-center">
+                <p class="text-gray-300 mb-6 text-lg">
+                    Ich bin immer offen für neue Möglichkeiten und spannende Projekte. Nehmen Sie gerne Kontakt auf!
+                </p>
+                <a href="mailto:redahakem35@gmail.com" class="inline-block px-8 py-3 btn-primary text-white rounded-lg font-semibold">
+                    Lassen Sie uns reden! 💬
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-cyan-500/20 bg-slate-900/50 text-center text-gray-400">
+        <p>© 2026 Reda Allah Hakem. Alle Rechte vorbehalten.</p>
+        <p class="text-sm mt-2">Erstellt mit Leidenschaft und Technologie</p>
+    </footer>
+
+    <script>
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    scrollToSection(href.slice(1));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
